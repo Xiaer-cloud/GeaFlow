@@ -110,6 +110,18 @@ public class GeaFlowRuntimeTable implements RuntimeTable {
     }
 
     @Override
+    public RuntimeTable intersect(RuntimeTable other) {
+        String opName =
+                PhysicRelNodeName.INTERSECT.getName(queryContext.getOpNameCount());
+        int parallelism = queryContext.getConfigParallelisms(opName,
+                pStream.getParallelism());
+        PWindowStream<Row> intersect = pStream.intersect(other.getPlan())
+                .withName(opName).withParallelism(parallelism);
+        return copyWithSetOptions(intersect);
+    }
+
+
+    @Override
     public <T> T getPlan() {
         return (T) pStream;
     }

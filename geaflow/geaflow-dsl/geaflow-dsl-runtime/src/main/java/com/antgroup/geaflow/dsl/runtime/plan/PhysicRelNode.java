@@ -30,6 +30,11 @@ public interface PhysicRelNode<D extends RDataView> extends RelNode {
     String showSQL();
 
     enum PhysicRelNodeName {
+
+        /**
+         * Name for table intersect node.
+         */
+        INTERSECT("intersect"),
         /**
          * Name for table scan node.
          */

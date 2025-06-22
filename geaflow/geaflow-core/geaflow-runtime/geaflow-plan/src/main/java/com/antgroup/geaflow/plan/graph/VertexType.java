@@ -21,6 +21,10 @@ package com.antgroup.geaflow.plan.graph;
 
 public enum VertexType {
     /**
+     * intersect vertex.
+     */
+    intersect,
+    /**
      * Source vertex.
      */
     source,

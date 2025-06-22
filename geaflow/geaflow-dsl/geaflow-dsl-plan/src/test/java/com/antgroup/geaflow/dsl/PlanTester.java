@@ -180,4 +180,8 @@ public class PlanTester {
     public String getDefaultGraphDDL() {
         return defaultGraphDDL;
     }
+
+    public RelNode getRelNode() {
+        return this.relNode;
+    }
 }

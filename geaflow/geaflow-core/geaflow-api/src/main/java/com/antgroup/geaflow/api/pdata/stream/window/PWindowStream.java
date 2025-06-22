@@ -33,6 +33,12 @@ import java.util.Map;
 public interface PWindowStream<T> extends PStream<T> {
 
     /**
+     * Perform intersect operation with iStream.
+     */
+    @Override
+    PWindowStream<T> intersect(PStream<T> iStream);
+
+    /**
      * Transform T to R by mapFunction.
      */
     @Override

@@ -25,6 +25,7 @@ import org.apache.calcite.rel.convert.ConverterRule;
 public class ConvertRules {
 
     public static ImmutableList<ConverterRule> TRANSFORM_RULES = ImmutableList.of(
+        ConvertIntersectRule.INSTANCE,
         ConvertAggregateRule.INSTANCE,
         ConvertCorrelateRule.INSTANCE,
         ConvertFilterRule.INSTANCE,

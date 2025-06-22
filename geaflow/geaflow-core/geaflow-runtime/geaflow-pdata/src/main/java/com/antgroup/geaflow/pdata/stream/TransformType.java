@@ -20,6 +20,7 @@
 package com.antgroup.geaflow.pdata.stream;
 
 public enum TransformType {
+    StreamIntersect,
     StreamSource,
     WindowSource,
     StreamJoin,

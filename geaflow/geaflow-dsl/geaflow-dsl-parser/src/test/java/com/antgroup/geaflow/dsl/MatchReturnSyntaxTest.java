@@ -80,4 +80,19 @@ public class MatchReturnSyntaxTest extends BaseDslTest {
         String unParseStmts = parseStmtsAndUnParse(parseStmtsAndUnParse(unParseSql));
         Assert.assertEquals(unParseStmts, unParseSql);
     }
+
+    @Test
+    public void testSQLIntersect() throws Exception {
+        String unParseSql = parseSqlAndUnParse("IntersectRule.sql");
+        String unParseStmts =
+                parseStmtsAndUnParse(parseStmtsAndUnParse((unParseSql)));
+        Assert.assertEquals(unParseStmts, unParseSql);
+    }
+    @Test
+    public void testGQLIntersect() throws Exception {
+        String unParseSql = parseSqlAndUnParse("GQLIntersectRule.sql");
+        String unParseStmts =
+                parseStmtsAndUnParse(parseStmtsAndUnParse((unParseSql)));
+        Assert.assertEquals(unParseStmts, unParseSql);
+    }
 }

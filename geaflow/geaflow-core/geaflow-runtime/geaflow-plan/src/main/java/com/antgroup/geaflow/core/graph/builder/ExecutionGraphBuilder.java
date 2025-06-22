@@ -538,7 +538,8 @@ public class ExecutionGraphBuilder implements Serializable {
         }
 
         // Set join and combine left/right input processor stream name.
-        if (pipelineVertex.getType() == VertexType.join || pipelineVertex.getType() == VertexType.combine) {
+        if (pipelineVertex.getType() == VertexType.join || pipelineVertex.getType() == VertexType.combine
+        || pipelineVertex.getType() == VertexType.intersect) {
             List<PipelineEdge> edges = plan.getVertexInputEdges(pipelineVertex.getVertexId())
                 .stream().sorted(Comparator.comparingInt(PipelineEdge::getStreamOrdinal))
                 .collect(Collectors.toList());

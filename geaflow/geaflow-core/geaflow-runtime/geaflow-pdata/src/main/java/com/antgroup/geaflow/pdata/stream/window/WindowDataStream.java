@@ -40,6 +40,7 @@ import com.antgroup.geaflow.operator.impl.window.KeySelectorOperator;
 import com.antgroup.geaflow.operator.impl.window.MapOperator;
 import com.antgroup.geaflow.operator.impl.window.SinkOperator;
 import com.antgroup.geaflow.operator.impl.window.UnionOperator;
+import com.antgroup.geaflow.operator.impl.window.IntersectOperator;
 import com.antgroup.geaflow.pdata.stream.Stream;
 import com.antgroup.geaflow.pipeline.context.IPipelineContext;
 import com.google.common.base.Preconditions;
@@ -70,6 +71,18 @@ public class WindowDataStream<T> extends Stream<T> implements PWindowStream<T> {
         this.input = (Stream) input;
         this.parallelism = input.getParallelism();
         this.opArgs.setParallelism(input.getParallelism());
+    }
+
+    @Override
+    public PWindowStream<T> intersect(PStream<T> iStream) {
+        if (this instanceof WindowIntersectStream) {
+            ((WindowIntersectStream<T>)
+                    this).addIntersectDataStream((WindowDataStream<T>) iStream);
+            return this;
+        } else {
+            return new WindowIntersectStream(this, (WindowDataStream<T>) iStream,
+                    new IntersectOperator()).withEncoder(this.encoder);
+        }
     }
 
     @Override

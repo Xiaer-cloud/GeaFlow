@@ -20,7 +20,6 @@
 package com.antgroup.geaflow.cluster.client.callback;
 
 import com.antgroup.geaflow.cluster.client.callback.ClusterStartedCallback.ClusterMeta;
-import com.antgroup.geaflow.cluster.client.callback.RestClusterStartedCallback.HttpRequest;
 import com.antgroup.geaflow.cluster.rpc.ConnectAddress;
 import com.antgroup.geaflow.common.config.Configuration;
 import com.google.gson.Gson;

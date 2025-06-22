@@ -31,6 +31,9 @@ import java.util.Map;
 
 public interface PStream<T> extends PData {
 
+    PStream<T> intersect(PStream<T> iStream);
+
+
     <R> PStream<R> map(MapFunction<T, R> mapFunction);
 
     PStream<T> filter(FilterFunction<T> filterFunction);

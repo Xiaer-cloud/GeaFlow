@@ -20,6 +20,7 @@
 package com.antgroup.geaflow.operator.base.window;
 
 import com.antgroup.geaflow.api.function.Function;
+import com.antgroup.geaflow.operator.OpArgs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,10 +31,12 @@ public abstract class AbstractTwoInputOperator<T, U, FUNC extends Function> exte
 
     public AbstractTwoInputOperator() {
         super();
+        opArgs.setOpType(OpArgs.OpType.TWO_INPUT);
     }
 
     public AbstractTwoInputOperator(FUNC func) {
         super(func);
+        opArgs.setOpType(OpArgs.OpType.TWO_INPUT);
     }
 
     @Override

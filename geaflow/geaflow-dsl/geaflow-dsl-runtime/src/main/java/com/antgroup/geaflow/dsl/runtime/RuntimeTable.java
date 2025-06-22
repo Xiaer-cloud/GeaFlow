@@ -38,6 +38,8 @@ import java.util.List;
  */
 public interface RuntimeTable extends RDataView {
 
+    RuntimeTable intersect(RuntimeTable other);
+
     RuntimeTable project(ProjectFunction function);
 
     RuntimeTable filter(WhereFunction function);
