@@ -1,0 +1,8 @@
+-- IntersectRule.sql
+SELECT 100
+INTERSECT
+(
+SELECT 101
+INTERSECT
+SELECT 102
+);
